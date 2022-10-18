@@ -46,6 +46,8 @@ class CashCalculator(Calculator):
             text = "Свободных средств:" + str(remained) + currency
         elif remained < 0:
             text = "Свободных средств нет. Долг:" + str(-1*remained) + currency
+        elif remained == 0:
+            text = "Ты на мели, бро" + str(remained) + currency
         return text
 
 class CaloriesCalculator(Calculator):
@@ -55,6 +57,8 @@ class CaloriesCalculator(Calculator):
             text = "Свободных средств:" + str(remained)
         elif remained < 0:
             text = "Свободных средств нет. Долг:" + str(-1*remained)
+        elif remained == 0:
+            text = "Ты на мели, бро" + str(remained)
         return text
 
 cash_calculator = CaloriesCalculator(1000)
@@ -65,7 +69,7 @@ print(cash_calculator.get_calories_remained())
 
 cash_calculator = CashCalculator(1000)
 cash_calculator.add_record(Record(amount=145, comment='кофе'))
-cash_calculator.add_record(Record(amount=300, comment='Серёге за обед'))
+cash_calculator.add_record(Record(amount=3000, comment='Серёге за обед'))
 cash_calculator.add_record(Record(amount=3000, comment='бар в Танин др', date='08.11.2019'))
 print(cash_calculator.get_today_cash_remained(" rub"))
 # print(cash_calculator.__dict__)
