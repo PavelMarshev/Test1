@@ -1,12 +1,13 @@
+import datetime
 def decorate(funct):
     def wrapper():
-        print("wrapper")
+        print("Текущая дата: ")
         funct()
     return wrapper
 
-
 @decorate
-def test():
-    print("test")
+def f():
+    print(datetime.datetime.now().date())
 
-test()
+f()
+
